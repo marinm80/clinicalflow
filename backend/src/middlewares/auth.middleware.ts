@@ -34,6 +34,8 @@ export async function authenticateToken(
     token = req.cookies['token'];
   }
 
+  console.log('Raw Auth Token Received in Backend:', token);
+
   if (!token) {
     res.status(401).json({ error: 'Acceso denegado: Token de autenticación no proporcionado.' });
     return;

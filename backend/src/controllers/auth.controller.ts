@@ -106,7 +106,8 @@ export async function login(req: Request, res: Response): Promise<void> {
         employeeId: user.employeeId,
         displayName,
         clinicRole,
-        department
+        department,
+        token
       }
     });
   } catch (error) {

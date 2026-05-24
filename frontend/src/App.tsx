@@ -32,6 +32,9 @@ export default function App() {
   };
 
   const handleLoginSuccess = (userData: any) => {
+    if (userData && userData.token) {
+      localStorage.setItem('token', userData.token);
+    }
     setUser(userData);
     selectDefaultTab(userData);
   };

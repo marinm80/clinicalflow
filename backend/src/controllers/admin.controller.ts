@@ -545,13 +545,13 @@ export async function generateMockData(req: Request, res: Response): Promise<voi
     `);
 
     // 5. Re-insert corresponding users
-    const passwordHash = '$2a$10$x782wRvxqf7m2fU4L/nN8e02P2bH0kR5590G9WkF8j.0L264iM6eK'; // hash for 'password123'
+    const passwordHash = '$2a$10$jm.VbIztnxvu7BXQL2cBUeAOHzbEC8HoVGnkbaNbkvKsR69R4H/H.'; // hash for 'password123'
     await transactionClient.query(`
       INSERT INTO "users" (id, email, "passwordHash", "userType", "employeeId")
       VALUES 
-        ('u1111111-1111-1111-1111-111111111111', 'juan.perez@clinicalflow.com', $1, 'employee', 'e1111111-1111-1111-1111-111111111111'),
-        ('u2222222-2222-2222-2222-222222222222', 'maria.gomez@clinicalflow.com', $1, 'employee', 'e2222222-2222-2222-2222-222222222222'),
-        ('u6666666-6666-6666-6666-666666666666', 'laura.delgado@clinicalflow.com', $1, 'employee', 'e6666666-6666-6666-6666-666666666666')
+        ('c1111111-1111-1111-1111-111111111111', 'juan.perez@clinicalflow.com', $1, 'employee', 'e1111111-1111-1111-1111-111111111111'),
+        ('c2222222-2222-2222-2222-222222222222', 'maria.gomez@clinicalflow.com', $1, 'employee', 'e2222222-2222-2222-2222-222222222222'),
+        ('c6666666-6666-6666-6666-666666666666', 'laura.delgado@clinicalflow.com', $1, 'employee', 'e6666666-6666-6666-6666-666666666666')
     `, [passwordHash]);
 
     // 6. Loop to programmatically generate 100 unique patients with multiple medical interactions

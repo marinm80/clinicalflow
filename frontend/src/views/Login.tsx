@@ -35,7 +35,8 @@ export default function Login({ onLoginSuccess }: LoginProps) {
         throw new Error(data.error || 'Fallo de autenticación.');
       }
 
-      onLoginSuccess(data.user);
+      const userWithToken = { ...data.user, token: data.token };
+      onLoginSuccess(userWithToken);
     } catch (err: any) {
       setError(err.message || 'Error de conexión con el servidor.');
     } finally {

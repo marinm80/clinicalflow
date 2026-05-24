@@ -1,0 +1,16 @@
+# Docker build exclusions
+node_modules
+npm-debug.log
+dist
+.env
+.env.local
+env.config
+Dockerfile
+.dockerignore
+
+# Exclude local database data, backups, and test files in production images
+pgdata
+backups
+*.sql
+tests
+coverage

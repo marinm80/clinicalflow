@@ -1,0 +1,47 @@
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: clinicalflow-db
+    restart: always
+    environment:
+      POSTGRES_DB: clinicalflow
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 9kX_8fQ_2pL4_mZ1_vK9
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    container_name: clinicalflow-backend
+    restart: always
+    ports:
+      - "5001:5001"
+    env_file:
+      - env.config
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+      - backups:/backups
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    container_name: clinicalflow-frontend
+    restart: always
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/package.json:/app/package.json
+      - ./frontend/vite.config.ts:/app/vite.config.ts
+      - ./frontend/tsconfig.json:/app/tsconfig.json
+      - ./frontend/index.html:/app/index.html
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:
+  backups:

@@ -1,0 +1,10 @@
+# Docker build exclusions for frontend
+node_modules
+npm-debug.log
+dist
+build
+.env
+.env.local
+Dockerfile
+.dockerignore
+.DS_Store

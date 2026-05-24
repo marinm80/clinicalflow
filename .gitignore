@@ -1,0 +1,50 @@
+# Environment Variables and Secret Configurations
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+env.config
+
+# Dependency directories
+node_modules/
+jspm_packages/
+web_modules/
+
+# Build and Compilation outputs
+dist/
+build/
+out/
+.next/
+.nuxt/
+bin/
+obj/
+
+# Local database pgdata and SQL backups
+pgdata/
+backups/
+*.sql
+*.sql.bak
+/backups/
+
+# Debug and System logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.log
+
+# IDEs and Text Editors settings
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+
+# CLI and AI system generated logs
+.antigravitycli/
+.gemini/
+brain/
